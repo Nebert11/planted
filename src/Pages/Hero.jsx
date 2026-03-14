@@ -1,12 +1,19 @@
-import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper/modules";
 import heroFarm from "../assets/images/image4.jpg";
 import farmImage from "../assets/images/image20.jpg";
+import farm2 from "../assets/images/image8.jpg";
+import farm3 from "../assets/images/image9.jpg";
+import farm4 from "../assets/images/image19.jpg";
+import farm5 from "../assets/images/image6.jpg";
 import { motion } from "framer-motion";
 import {Link} from "react-router-dom";
 import { Leaf, Cpu, Users, ShieldCheck, Sprout, BarChart3, GraduationCap, Globe, ArrowRight } from "lucide-react";
 import SectionHeading from "../Components/SectionHeading";
 import AnimatedCounter from "../Components/AnimatedCounter";
 
+import "swiper/css";
+import "swiper/css/pagination";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -117,12 +124,38 @@ const Hero = () => {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <motion.div
-                            initial= {{ opacity: 0, x: 30 }}
+                            initial={{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6 }} 
+                            transition={{ duration: 0.6 }}
                         >
-                            <img src={farmImage} alt="" className="rounded-2xl shadow-lg w-full object-cover aspect-[4/3]" />
+                            <Swiper
+                                modules={[Autoplay, Pagination]}
+                                autoplay={{ delay: 4000 }}
+                                pagination={{ clickable: true }}
+                                loop={true}
+                                className="rounded-2xl shadow-lg w-full aspect-[4/3]"
+                            >
+                                <SwiperSlide>
+                                    <img src={farmImage} className="w-full h-full object-cover" />
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+                                    <img src={farm2} className="w-full h-full object-cover" />
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+                                    <img src={farm3} className="w-full h-full object-cover" />
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+                                    <img src={farm4} className="w-full h-full object-cover" />
+                                </SwiperSlide>
+
+                                <SwiperSlide>
+                                    <img src={farm5} className="w-full h-full object-cover" />
+                                </SwiperSlide>
+                            </Swiper>
                         </motion.div>
 
                         <motion.div
