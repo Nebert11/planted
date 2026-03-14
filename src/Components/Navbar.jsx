@@ -1,14 +1,14 @@
 import logo from "../assets/images/logo.jpg";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, Phone, Facebook, Instagram, Twitter, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import { useEffect } from "react";
 const navLinks = [
-    { label: "Hero", path: "/Hero" },
+    { label: "Hero", path: "/" },
     { label: "About", path: "/about" },
     { label: "Services", path: "/services" },
-    { label: "Projects", path: "/farm" },
+    { label: "Projects", path: "/projects" },
     { label: "Blog", path: "/blog"},
     { label: "Contact", path: "/contact" }
 ]

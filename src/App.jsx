@@ -5,7 +5,8 @@ import Footer from "./Components/Footer";
 import Hero from "./Pages/Hero";
 import About from "./Pages/About";
 import Contact from './Pages/Contact';
-import Farm from './Pages/Farm';
+import Projects from './Pages/Projects';
+import Services from "./Pages/Services";
 
 const App = () => {
 
@@ -14,10 +15,12 @@ const App = () => {
       <BrowserRouter>
       <Navbar/>
         <Routes>
-          <Route path="/hero" element={<Hero/>} />
+          <Route path="/" element={<Hero/>} />
           <Route path="/about" element={<About/>} />
-          <Route path="/farm" element={<Farm/>} />
+          <Route path="/projects" element={<Projects/>} />
+          <Route path="/services" element={<Services/>}/>
           <Route path="/contact" element={<Contact/>} />
+
         </Routes>
         <Footer/>
       </BrowserRouter>
