@@ -120,7 +120,7 @@ const Hero = () => {
                             initial= {{ opacity: 0, x: 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.6 }}
+                            transition={{ duration: 0.6 }} 
                         >
                             <img src={farmImage} alt="" className="rounded-2xl shadow-lg w-full object-cover aspect-[4/3]" />
                         </motion.div>
