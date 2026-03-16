@@ -31,7 +31,7 @@ const Navbar = () => {
         <nav className="fixed top-0 left-0 right-0 z-50 bg-[hsl(90,20%,98%)] backdrop-blur-md border-b border-[hsl(90,15%,88%)]">
             <div className="container max-w-7xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8 text-xl mt-2">
                 <Link to="/" className="flex items-center gap-2">
-                    <img src={logo} alt="" className="h-12 w-14 object-contain" />
+                    <img src={logo} alt="" className="h-16 w-18 object-contain" />
                     <span className="text-xl font-display font-bold text-[hsl()]">plantED</span>
                 </Link>
 
