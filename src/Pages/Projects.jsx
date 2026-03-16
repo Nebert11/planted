@@ -1,4 +1,4 @@
-import bgImage from "../assets/images/image4.jpg";
+import bgImage from "../assets/images/fruits.png";
 import { motion } from "framer-motion"
 import SectionHeading from "../Components/SectionHeading";
 import {Link} from "react-router-dom";
@@ -13,8 +13,8 @@ const projects = [
         location: "Mutara, Laikipia, Kenya",
         image: avocadoImage,
         impact: "100% adoption of structured orchard spacing (6x4) across the new planting blocks.",
-        desc: "100% adoption of structured orchard spacing (6x4) across the new planting blocks",
-        results: ["2 years to first fruit production, demonstrating strong early orchard establishment.", "2 years to first fruit production, demonstrating strong early orchard establishment.", "2 years to first fruit production, demonstrating strong early orchard establishment.", "2 years to first fruit production, demonstrating strong early orchard establishment."]
+        desc: "The orchard was planted with Hass and Fuerte varieties at optimized spacing (6x4) with Napier windbreaks, forming part of a vertically integrated avocado production and processing project.",
+        results: ["2 years to first fruit production, demonstrating strong early orchard establishment.", "6x4 meter tree spacing implemented, enabling efficient orchard management and yield potential.", "2 avocado varieties introduced (Hass and Fuerte) to diversify production.", "1 integrated processing facility planned, supporting future avocado oil production."]
     },
     {
         title: "Chemusot Tea Estates Avocado Conversion",

@@ -1,10 +1,10 @@
-import heroFarm from "../assets/images/image4.jpg";
+import heroFarm from "../assets/images/hero-farm.jpg";
 import farmImage from "../assets/images/image20.jpg";
 import farm2 from "../assets/images/image8.jpg";
 import farm3 from "../assets/images/image9.jpg";
 import farm4 from "../assets/images/image19.jpg";
 import farm5 from "../assets/images/image6.jpg";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { motion } from "framer-motion";
 import {Link} from "react-router-dom";
 import { Leaf, Cpu, Users, ShieldCheck, Sprout, BarChart3, GraduationCap, Globe, ArrowRight } from "lucide-react";

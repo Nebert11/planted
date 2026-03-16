@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import bgImage from "../assets/images/image4.jpg";
+import bgImage from "../assets/images/seedlings.png";
 import storyImage from "../assets/images/image15.jpg";
 import SectionHeading from "../Components/SectionHeading";
 import { Leaf, Lightbulb, Users, Award } from "lucide-react";

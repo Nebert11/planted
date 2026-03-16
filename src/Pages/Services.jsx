@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import bgImage from "../assets/images/image4.jpg";
+import bgImage from "../assets/images/people.png";
 import SectionHeading from "../Components/SectionHeading";
 import { Sprout, BarChart3, Cpu, GraduationCap, Leaf, Globe } from "lucide-react";
 import { ArrowRight } from "lucide-react";
