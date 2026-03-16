@@ -1,19 +1,15 @@
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination } from "swiper/modules";
 import heroFarm from "../assets/images/image4.jpg";
 import farmImage from "../assets/images/image20.jpg";
 import farm2 from "../assets/images/image8.jpg";
 import farm3 from "../assets/images/image9.jpg";
 import farm4 from "../assets/images/image19.jpg";
 import farm5 from "../assets/images/image6.jpg";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import {Link} from "react-router-dom";
 import { Leaf, Cpu, Users, ShieldCheck, Sprout, BarChart3, GraduationCap, Globe, ArrowRight } from "lucide-react";
 import SectionHeading from "../Components/SectionHeading";
 import AnimatedCounter from "../Components/AnimatedCounter";
-
-import "swiper/css";
-import "swiper/css/pagination";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -53,7 +49,20 @@ const testimonials = [
     {quote: "Working with plantED has been a game-changer for our community. We now have food security year-round.", name: "Fatima Ahmed", role: "Community Leader, Tanzania"}
 ];
 
+
+
 const Hero = () => {
+    
+    const galleryImages = [
+        { src: farmImage, alt: "Sustainable farm landscape", caption: "Smart irrigation in action" },
+        { src: farm2, alt: "Field with crops", caption: "Healthy crops powered by data" },
+        { src: farm3, alt: "Farmers collaborating", caption: "Community-led farming" },
+        { src: farm4, alt: "Modern farm equipment", caption: "Modern tools for better yields" },
+        { src: farm5, alt: "Sunrise over farmland", caption: "A new day for sustainable agriculture" },
+    ];
+
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
     return (
         <div className="overflow-hidden">
             {/* Hero Section */}
@@ -124,38 +133,16 @@ const Hero = () => {
                 <div className="max-w-7xl mx-auto">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
                         <motion.div
-                            initial={{ opacity: 0, x: 30 }}
+                            initial={{ opacity: 0, x: -30 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                        >
-                            <Swiper
-                                modules={[Autoplay, Pagination]}
-                                autoplay={{ delay: 4000 }}
-                                pagination={{ clickable: true }}
-                                loop={true}
-                                className="rounded-2xl shadow-lg w-full aspect-[4/3]"
                             >
-                                <SwiperSlide>
-                                    <img src={farmImage} className="w-full h-full object-cover" />
-                                </SwiperSlide>
-
-                                <SwiperSlide>
-                                    <img src={farm2} className="w-full h-full object-cover" />
-                                </SwiperSlide>
-
-                                <SwiperSlide>
-                                    <img src={farm3} className="w-full h-full object-cover" />
-                                </SwiperSlide>
-
-                                <SwiperSlide>
-                                    <img src={farm4} className="w-full h-full object-cover" />
-                                </SwiperSlide>
-
-                                <SwiperSlide>
-                                    <img src={farm5} className="w-full h-full object-cover" />
-                                </SwiperSlide>
-                            </Swiper>
+                                <img 
+                                    src={galleryImages[currentImageIndex].src} 
+                                    alt={galleryImages[currentImageIndex].alt}
+                                    className="rounded-2xl shadow-lg w-full object-cover aspect-[4/3]"
+                                />
                         </motion.div>
 
                         <motion.div
