@@ -1,10 +1,10 @@
-import bgImage from "../assets/images/fruits.png";
+import bgImage from "../assets/images/farm2.jpeg";
 import { motion } from "framer-motion"
 import SectionHeading from "../Components/SectionHeading";
 import {Link} from "react-router-dom";
 import { MapPin, ArrowRight, TrendingUp } from "lucide-react";
 import avocadoImage from "../assets/images/avocado.png";
-import avocadoTrees from "../assets/images/avocadotrees.png";
+import avocadoTrees from "../assets/images/avocado1.jpeg";
 import teaFarm from "../assets/images/tea.png";
 
 const projects = [
@@ -19,7 +19,7 @@ const projects = [
     {
         title: "Chemusot Tea Estates Avocado Conversion",
         location: "Chemusot, Kenya",
-        image: avocadoTrees,
+        image: teaFarm,
         impact: "40% of the planned orchad already established, accelerating the transition from tea to high-value avocado farming.",
         desc: "PlantED implemented a greenfield conversion project transforming tea plantations into a modern avocado orchad.",
         results: ["32 hectares of avocado orchards planted, forming the first phase of the development.","80 hectares targeted for total orchard development, expanding the scale of production.", "1 full orchard conversion project underway, transitioning land use from tea to avocado.", "2027 target completion year, marking the expected full establishment of the farm."]
@@ -27,7 +27,7 @@ const projects = [
     {
         title: "Souk Farms Avocado Development",
         location: "Kigali & Southern Rwanda",
-        image: teaFarm,
+        image: avocadoTrees,
         impact: "100% technical assessment of site conditions, improving orchard design and disease prevention measures.",
         desc: "PlantED provided technical consultancy for Souk Farms focusing on orchard planning, irrigation design, soil and drainage analysis, and disease prevention strategies to support large-scale avocado production.",
         results: ["2 key production regions assessed (Kigali and Southern Rwanda) for orchard suitability.", "20 litres irrigation per tree recommended twice weekly, improving water management.",  "1 drainage improvement strategy implemented, reducing water-logging risk.", "Raised mound planting method introduced, improving root health and disease resistance."]

@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import SectionHeading from "../Components/SectionHeading";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
-import bgImage from "../assets/images/image4.jpg";
+import bgImage from "../assets/images/nurseries.png";
 
 const Contact = () => {
     const [ form, setForm] = useState({ name: "", email: "",  phone: "", organization: "", message: "" });

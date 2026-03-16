@@ -66,7 +66,7 @@ const Hero = () => {
     return (
         <div className="overflow-hidden">
             {/* Hero Section */}
-            <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+            <section className="relative h-[80vh] flex items-center justify-center overflow-hidden">
                 <img src={heroFarm} alt="" className="absolute inset-0 w-full h-full object-cover"/>
                 <div className="absolute inset-0 bg-gradient-to-br from-[hsl(142_52%_32%/0.9)] via-[hsl(142_52%_32%/0.7)] to-[hsl(30_35%_30%/0.6)] "/>
                 <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -75,7 +75,7 @@ const Hero = () => {
                         animate= {{ opacity: 1, y: 0 }}
                         transition= {{ duration: 0.8 }}
                     >
-                        <span className="inline-block px-4 py-1.5 rounded-full bg-[hsl(0,0%,100%)]/20 text-[hsl(0,0%,100%)] text-xl font-semibold mb-6 backdrop-blur-sm">
+                        <span className="inline-block px-4 py-1.5 rounded-full bg-[hsl(0,0%,100%)]/20 text-[hsl(0,0%,100%)] text-sm font-semibold mb-6 backdrop-blur-sm">
                             Sustainable Agriculture for Tomorrow
                         </span>
                         <h1 className="text-4xl sm:text-5xl md:6xl lg:text-7xl font-display font-bold text-[hsl(0,0%,100%)] leading-tight max-w-4xl mx-auto ">
