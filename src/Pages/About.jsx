@@ -1,8 +1,17 @@
 import { motion } from "framer-motion";
 import bgImage from "../assets/images/seedlings.png";
-import storyImage from "../assets/images/image15.jpg";
+import farmImage from "../assets/images/seedlings.png";
+import farm2 from "../assets/images/nurseries.png";
+import farm3 from "../assets/images/image21.jpg";
+import farm4 from "../assets/images/avocado1.jpeg";
+import farm5 from "../assets/images/avocado.png";
+import image1 from "../assets/images/image15.jpg";
+import image2 from "../assets/images/image16.jpg";
+import image3 from "../assets/images/image17.jpg";
+import image4 from "../assets/images/people.png";
 import SectionHeading from "../Components/SectionHeading";
 import { Leaf, Lightbulb, Users, Award } from "lucide-react";
+import { useState, useEffect } from "react";
 
 
 const values = [
@@ -19,7 +28,43 @@ const team = [
     { icon: Users, name: "David Mutua", role: "Director of Researh", desc: "Crop scientists lead research in climate resilient agriculture." }
 ];
 
+
+
 const About = () => {
+
+    const changesImages = [
+        { src: image1 },
+        { src: image2 },
+        { src: image3 },
+        { src: image4 }
+    ];
+    const [currentImage, setCurrentImage] = useState(0);
+
+    useEffect (() => {
+        const interval = setInterval(() => {
+            setCurrentImage((prev) => (prev + 1) % changesImages.length);
+        }, 4500);
+
+        return () => clearInterval(interval);
+    }, [changesImages.length]);
+
+    const galleryImages = [
+        { src: farmImage, alt: "Sustainable farm landscape" },
+        { src: farm2, alt: "Field with crops" },
+        { src: farm3, alt: "Farmers collaborating" },
+        { src: farm4, alt: "Modern farm equipment" },
+        { src: farm5, alt: "Sunrise over farmland" },
+    ];
+    const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+        }, 4500);
+
+        return () => clearInterval(interval);
+    }, [galleryImages.length]);
+
     return (
         <div className="overflow-hidden">
             {/* Hero Section */}
@@ -38,9 +83,22 @@ const About = () => {
                 </div>
             </section>
 
-            {/* Our Story */}
+            {/* Our Stories */}
             <section className="px-4 sm:px-6 lg:px-8 py-16 md:py-24">
                 <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <img 
+                            src={galleryImages[currentImageIndex].src} 
+                            alt={galleryImages[currentImageIndex].alt}
+                            className="rounded-2xl shadow-lg w-full object-cover aspect-[4/3]"
+                        />
+                    </motion.div>
+
                     <motion.div
                         initial= {{ opacity: 0, x: -20 }}
                         whileInView={{ opacity: 1, x: 0 }}
@@ -55,12 +113,35 @@ const About = () => {
                             Today, we serve over 12,500 farmers across multiple countries, helping them adopt sustainable practices, integrate smart technology, and access broader markets for their produce.
                         </p>
                     </motion.div>
+                    
+                </div>
+            </section>
+
+            <section className="px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+                <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+                    <motion.div
+                        initial= {{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                    >
+                        <h3 className="text-sm bg-[hsl(142,52%,32%)]/10 inline-block px-4 py-1 rounded-lg font-semibold text-[hsl(142,53%,32%)] mb-4">Our Story</h3>
+                        <p className="text-3xl font-display font-bold text-[hsl(150,30%,12%)] ">Roots of Change</p>
+                        <p className="mt-4 text-[hsl(150,10%,45%)] leading-relaxed">
+                            In a quiet farming community where opportunities once felt limited, a new kind of growth began to take shape, not just in the fields, but in the lives of the people. What started as an initiative to improve agricultural practices soon became a source of empowerment for local farmers. With access to better knowledge, improved techniques, and a shared vision, families began to see real change. Yields increased, incomes stabilized, and for the first time in a long while, there was a sense of control over their future. The project did not just introduce innovation, it restored dignity and confidence among those who had long relied on uncertain harvests.
+                        </p>
+                        <p className="mt-4 text-[hsl(150,10%,45%)] leading-relaxed">
+                            At the heart of this transformation were the people themselves, the farmers, the trainers, and the leaders who believed in doing things differently. Faces once marked by doubt now reflected pride and resilience. Communities grew closer, sharing not only resources but also hope. The ripple effect was undeniable: children stayed in school, households became more secure, and local economies slowly strengthened. This was not just about farming, it was about building a sustainable future, one where progress is shared and every success story inspires another.
+                        </p>
+                    </motion.div>
                     <motion.div
                         initial= {{ opacity: 0, x: 20 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }} 
                     >
-                        <img src={storyImage} alt="" className="rounded-2xl shadow-lg w-full object-cover aspect-[4/3]"/>
+                        <img 
+                            src={changesImages[currentImage].src} 
+                            className="rounded-2xl shadow-lg w-full object-cover aspect-[4/3]"
+                        />
                     </motion.div>
                 </div>
             </section>

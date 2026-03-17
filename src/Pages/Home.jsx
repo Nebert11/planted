@@ -10,6 +10,7 @@ import {Link} from "react-router-dom";
 import { Leaf, Cpu, Users, ShieldCheck, Sprout, BarChart3, GraduationCap, Globe, ArrowRight } from "lucide-react";
 import SectionHeading from "../Components/SectionHeading";
 import AnimatedCounter from "../Components/AnimatedCounter";
+import { useEffect } from "react";
 
 const fadeUp = {
     hidden: { opacity: 0, y: 30 },
@@ -62,6 +63,13 @@ const Hero = () => {
     ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prev) => (prev + 1) % galleryImages.length);
+        }, 4500);
+
+        return () => clearInterval(interval);
+    }, [galleryImages.length]);
 
     return (
         <div className="overflow-hidden">
