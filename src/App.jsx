@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
@@ -7,6 +6,7 @@ import About from "./Pages/About";
 import Contact from './Pages/Contact';
 import Projects from './Pages/Projects';
 import Services from "./Pages/Services";
+import ScrollToTop from './Components/ScrollToTop';
 
 const App = () => {
 
@@ -22,6 +22,7 @@ const App = () => {
           <Route path="/contact" element={<Contact/>} />
 
         </Routes>
+        <ScrollToTop/>
         <Footer/>
       </BrowserRouter>
     </>
