@@ -50,6 +50,14 @@ const testimonials = [
     {quote: "Working with plantED has been a game-changer for our community. We now have food security year-round.", name: "Fatima Ahmed", role: "Community Leader, Tanzania"}
 ];
 
+const partners = [
+  "Menegai", "AAA", "Mutara Orchards", "Mt Elgon", "Chesumot Tea", "Gecheha", "Eboss", "Kisima", "Osti Global Tanzania", "Mehta Group Uganda"
+];
+
+const team = [
+    "Sasini", "KFM Kitui", "Panacol Kitale", "Africado", "Granot Agdevco", "Eastern Orchards", "EAGA", "Borana, Sanyati", "Delamere & Murula", 
+  "Forest Foods", "Engineer Kamau", "Lewa Downs", "Cullen"
+];
 
 
 const Hero = () => {
@@ -271,24 +279,37 @@ const Hero = () => {
                 </div>
             </section>
 
-            {/* Partners */}
-            <section className="px-4 sm:px-6 lg:px-8 py-16 md:py-24">
+            {/* Partners */} 
+            <section className="px-4 sm:px-6 lg:px-8 py-16 md:py-24 overflow-hidden">
                 <div className="max-w-7xl mx-auto">
                     <SectionHeading 
-                        label= "Our Partners"
-                        title= "Trusted Collaborators"
-                        description= "Working alongside leading organizations to transform agriculture"
+                    label="Our Partners"
+                    title="Trusted Collaborators"
+                    description="Working alongside leading organizations to transform agriculture"
                     />
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 items-center opacity-60">
-                        {[
-                            "AgriTech Corp", "FarmWise", "GreenGrow", "CropData", "SoilSense", "HarvestHub"
-                        ].map((name) => (
-                            <div key={name} className="text-center p-4">
-                                <div className="h-12 flex items-center justify-center ">
-                                    <span className="font-display font-bold text-lg text-[hsl(150,30%,12%)]">{name}</span>
-                                </div>
+
+                    <div className="overflow-hidden">
+                        <div className="flex gap-12 animate-scroll-right whitespace-nowrap">
+                            {[...partners, ...partners].map((name, index) => (
+                            <div key={index} className="flex items-center justify-center min-w-[150px]">
+                                <span className="font-display font-bold text-lg text-[hsl(150,30%,12%)] opacity-60">
+                                {name}
+                                </span>
+                            </div>
+                            ))}
+                        </div>
+                    </div>
+
+                     <div className="overflow-hidden">
+                        <div className="flex w-max gap-12 animate-scroll-left whitespace-nowrap">
+                        {[...team, ...team].map((name, index) => (
+                            <div key={index} className="min-w-[150px] text-center">
+                            <span className="font-display font-bold text-lg text-[hsl(150,30%,12%)] opacity-60">
+                                {name}
+                            </span>
                             </div>
                         ))}
+                        </div>
                     </div>
                 </div>
             </section>
