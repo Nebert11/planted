@@ -64,6 +64,7 @@ const Projects = () => {
                     <div className="space-y-16">
                         {projects.map((p, i) => (
                             <motion.div
+                                key={p.title}
                                 initial= {{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}

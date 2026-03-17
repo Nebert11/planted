@@ -59,7 +59,7 @@ const Services = () => {
                                     <p className="mt-2 text-[hsl(150,10%,45%)] leading-relaxed">{s.desc}</p>
                                     <ul className="mt-4 grid grid-cols-2 gap-2">
                                         {s.features.map((f) => (
-                                            <li className="flex gap-2 items-center text-[hsl(150,10%,45%)] text-sm">
+                                            <li key={f} className="flex gap-2 items-center text-[hsl(150,10%,45%)] text-sm">
                                                 <Leaf className="w-3 h-3 text-[hsl(142,52%,32%)] flex-shrink-0"/>
                                                 {f}
                                             </li>

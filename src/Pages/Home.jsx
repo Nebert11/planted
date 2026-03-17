@@ -76,7 +76,7 @@ const Hero = () => {
                         transition= {{ duration: 0.8 }}
                     >
                         <span className="inline-block px-4 py-1.5 rounded-full bg-[hsl(0,0%,100%)]/20 text-[hsl(0,0%,100%)] text-sm font-semibold mb-6 backdrop-blur-sm">
-                            Sustainable Agriculture for Tomorrow
+                            🌱 Sustainable Agriculture for Tomorrow
                         </span>
                         <h1 className="text-4xl sm:text-5xl md:6xl lg:text-7xl font-display font-bold text-[hsl(0,0%,100%)] leading-tight max-w-4xl mx-auto ">
                             Growing the Future of Sustainable Agriculture

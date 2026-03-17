@@ -30,8 +30,9 @@ const Footer = () => {
                         <h4 className="font-display font-semibold text-lg mb-4">Quick Links</h4>
                         <ul className="space-y-2 text-sm opacity-70">
                             {quickLinks.map((l) => (
-                            <li key={l}>
+                            <li key={l.path}>
                                 <Link to={l.path}
+                                    onClick={() => window.scrollTo(0, 0)}
                                     className={`hover:opacity-100 transition-opacity ${
                                         location.pathname === l.path
                                         ? ""
@@ -51,7 +52,7 @@ const Footer = () => {
                         <ul className="space-y-3 text-sm opacity-70">
                             <li className="flex items-center gap-2"><MapPin size={16}/>123 Farm Road, Nairobi, Kenya</li>
                             <li className="flex items-center gap-2"><Phone size={16}/>+2547-06-218-228</li>
-                            <li className="flex items-center gap-2"><Instagram size={16}/>Plantend Kenya</li>
+                            <li><a href="https://www.instagram.com/plantedkenya" className="flex items-center gap-2"><Instagram size={16}/>Plantend Kenya</a></li>
                             <li className="flex items-center gap-2"><Mail size={16}/>info@planted.com</li>
                         </ul>
                     </div>

@@ -129,7 +129,7 @@ const About = () => {
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
                         {team.map((t, i) => (
                             <motion.div
-                                key={t.title}
+                                key={t.name}
                                 initial= {{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}

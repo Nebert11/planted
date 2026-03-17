@@ -40,6 +40,7 @@ const Navbar = () => {
                         <Link
                             key={link.path}
                             to={link.path}
+                            onClick={() => window.scrollTo(0, 0)}
                             className={`px-3 py-2 rounded-md font-bold text-sm font-medium transition-colors)]
                                 ${
                                     location.pathname === link.path
@@ -77,7 +78,7 @@ const Navbar = () => {
                                 <Link
                                     to={link.path}
                                     key={link.path}
-                                    onClick={() => setIsOpen(false)}
+                                    onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }}
                                     className={`block px-3 py-2 rounded-md text-sm font-medium ${
                                         location.pathname === link.path
                                         ? "bg-[hsl(142,52%,32%)]/10 text-[hsl(142,52%,32%)]"
@@ -89,7 +90,7 @@ const Navbar = () => {
                             ))}
                             <Link
                                 to="/contact"
-                                onClick={() => setIsOpen(false)}
+                                onClick={() => { setIsOpen(false); window.scrollTo(0, 0); }}
                                 className="block mt-3 text-center px-5 py-2 rounded-full bg-[hsl(142,52%,32%)] text-[hsl(0,0%,100%)] text-sm font-semibold"
                             >
                                 Get In Touch
