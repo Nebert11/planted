@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import Navbar from "./Components/Navbar";
 import Footer from "./Components/Footer";
-import Hero from "./Pages/Hero";
+import Home from "./Pages/Home";
 import About from "./Pages/About";
 import Contact from './Pages/Contact';
 import Projects from './Pages/Projects';
@@ -15,7 +15,7 @@ const App = () => {
       <BrowserRouter>
       <Navbar/>
         <Routes>
-          <Route path="/" element={<Hero/>} />
+          <Route path="/" element={<Home/>} />
           <Route path="/about" element={<About/>} />
           <Route path="/projects" element={<Projects/>} />
           <Route path="/services" element={<Services/>}/>

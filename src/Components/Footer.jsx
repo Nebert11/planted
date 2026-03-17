@@ -1,6 +1,14 @@
 import { Leaf, MapPin, Instagram, Phone, Mail } from "lucide-react";
 import { Link } from "react-router-dom";
 
+const quickLinks = [
+    { label: "Home", path: "/" },
+    { label: "About", path: "/about" },
+    { label: "Services", path: "/services" },
+    { label: "Projects", path: "/projects" },
+    { label: "Contact", path: "/contact" }
+]
+
 const Footer = () => {
     return(
         <section className="bg-[hsl(150,30%,12%)] text-[hsl(90,20%,98%)]">
@@ -21,10 +29,16 @@ const Footer = () => {
                     <div>
                         <h4 className="font-display font-semibold text-lg mb-4">Quick Links</h4>
                         <ul className="space-y-2 text-sm opacity-70">
-                            {["Home", "About Us", "Services", "Projects", "Blog", "Partners", "Contact"].map((l) => (
+                            {quickLinks.map((l) => (
                             <li key={l}>
-                                <Link to={`${l.toLowerCase()}`} className="hover:opacity-100 transition-opacity">
-                                    {l}
+                                <Link to={l.path}
+                                    className={`hover:opacity-100 transition-opacity ${
+                                        location.pathname === l.path
+                                        ? ""
+                                        : ""
+                                    }`}
+                                >
+                                    {l.label}
                                 </Link>
                             </li>
                             ))}
