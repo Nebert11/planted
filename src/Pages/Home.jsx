@@ -4,6 +4,8 @@ import farm2 from "../assets/images/image8.jpg";
 import farm3 from "../assets/images/image9.jpg";
 import farm4 from "../assets/images/image19.jpg";
 import farm5 from "../assets/images/image6.jpg";
+import farm6 from "../assets/images/edward.jpeg";
+import avocado from "../assets/images/avocado1.jpeg";
 import { useState } from "react";
 import { motion } from "framer-motion";
 import {Link} from "react-router-dom";
@@ -68,6 +70,8 @@ const Hero = () => {
         { src: farm3, alt: "Farmers collaborating", caption: "Community-led farming" },
         { src: farm4, alt: "Modern farm equipment", caption: "Modern tools for better yields" },
         { src: farm5, alt: "Sunrise over farmland", caption: "A new day for sustainable agriculture" },
+        { src: avocado, alt: "Ready to harvest avocados", caption: "Ready to harvest avocados" },
+        { src: farm6, alt: "Founder in one of green houses", caption: "Our Founder" }
     ];
 
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
