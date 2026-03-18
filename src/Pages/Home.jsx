@@ -47,8 +47,8 @@ const stats = [
 ];
 
 const testimonials = [
-    {quote: "plantED transformed our farm's productivity by 200%. Their smart irrigation solutions saved us water and money.", name: "Mary Wanjiku", role: "Smallholder Famer in Kenya"},
-    {quote: "The training programs gave our cooperative the knowledge to compete in modern agricultural markets.", name: "Samuel Ochieng", role: "Community Leader, Uganda"},
+    {quote: "I am happy with Isinya and would like to offer regional open days and farmer sensitisation programs. I would like to visit the farm to have a better experience.", name: "Phanuel", role: "Smallholder Coordinator in Rwanda"},
+    {quote: "Welcoming reception. I am committed to Isinya and I look forward for further cooperation.", name: "Seun Rasheed", role: "Souk Ltd, Rwanda"},
     {quote: "Working with plantED has been a game-changer for our community. We now have food security year-round.", name: "Fatima Ahmed", role: "Community Leader, Tanzania"}
 ];
 
@@ -272,7 +272,7 @@ const Hero = () => {
                                 variants={fadeUp}
                                 className="p-6 rounded-2xl bg-[hsl(0,0%,100%)] border border-[hsl(90,15%,88%)] "
                             >
-                                <p className="text-[hsl(150,10%,45%)] italic leading-relaxed ">{t.quote}</p>
+                                <p className="text-[hsl(150,10%,45%)] italic leading-relaxed">{t.quote}</p>
                                 <div className="mt-4 pt-4 border-t border-[hsl(90,15%,88%)]">
                                     <p className="font-semibold text-[hsl(150,30%,12%)]">{t.name}</p>
                                     <p className="text-sm text-[hsl(150,10%,45%)]">{t.role}</p>

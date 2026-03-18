@@ -22,7 +22,7 @@ const values = [
 ];
 
 const team = [
-    { icon: Users, name: "Edward El", role: "Founder & CEO", desc: "Agricultural scientist with 20 years of experience in sustainable farming." },
+    { icon: Users, name: "Edward Agg-Manning", role: "Founder & CEO", desc: "Agricultural scientist with 20 years of experience in sustainable farming." },
     { icon: Users, name: "James Kariuki", role: "CMO", desc: "Tech leader specializing in agricultural data systems and IoT solutions." },
     { icon: Users, name: "Sarah Daniel", role: "Head of operations", desc:"Operations expert with deep roots in community development programs." },
     { icon: Users, name: "David Mutua", role: "Director of Researh", desc: "Crop scientists lead research in climate resilient agriculture." }

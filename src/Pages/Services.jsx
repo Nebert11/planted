@@ -11,7 +11,7 @@ const solutions = [
     { icon: BarChart3, title: "Farm Operations Management", desc: "End-to-end management solutions covering planning, execution, monitoring, and optimization of all farm activities.", features:["Production Farming", "Resource Management", "Supply chain optimization", "Financial tracking"]},
     { icon: Leaf, title: "Crop Advisory & Consultancy", desc: "Expert agronomists provide personalized guidance on crop selection, nutrient management, disease prevention, and harvest optimization.", features:["Crop selection guidance", "Nutrient management", "Disease prevention", "Harvest optimization"]},
     { icon: GraduationCap, title: "Agricultural Training Programs", desc: "Comprehensive capacity-building programs designed to equip farmers with modern skills and best practices.", features:["Hands-on workshops", "Digital leteracy", "Business skills", "Climate-smart techniques"]},
-    { icon: Globe, title: "Market Access & Value Chain Support", desc: "WConnecting farmers to local and international markets while building efficient value chains from farm to fork.", features:["Market linkages", "Quality standards", "Post harvest handling", "Export facilitation"]}
+    { icon: Globe, title: "Market Access & Value Chain Support", desc: "Connecting farmers to local and international markets while building efficient value chains from farm to fork.", features:["Market linkages", "Quality standards", "Post harvest handling", "Export facilitation"]}
 ]
 
 const Services = () => {
