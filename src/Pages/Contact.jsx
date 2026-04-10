@@ -14,7 +14,19 @@ const Contact = () => {
             toast.error("Please fill in all required fields.");
             return;
         }
-        toast.success("Message sent! We'll get back to you shortly.");
+
+        const recipient = "Ed@planted.co.ke";
+        const subject = encodeURIComponent(`Contact request from ${form.name}`);
+        const body = encodeURIComponent(
+            `Name: ${form.name}\n` +
+            `Email: ${form.email}\n` +
+            `Phone: ${form.phone}\n` +
+            `Organization: ${form.organization}\n\n` +
+            `Message:\n${form.message}`
+        );
+
+        window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
+        toast.success("Opening your email client to send the message.");
         setForm({ name: "", email: "", phone: "", organization: "", message: ""});
     };
 
@@ -47,7 +59,7 @@ const Contact = () => {
                             viewport={{ once: true }}
                         >
                             <SectionHeading title="Send Message" center= {false}/>
-                            <form onClick={handleSubmit} className="space-y-5">
+                            <form onSubmit={handleSubmit} className="space-y-5">
                                 <div className="grid sm:grid-cols-2 gap-5">
                                     <div>
                                         <label className="block text-sm font-medium text-[hsl(150,30%,12%)] mb-1.5">Name *</label>
@@ -137,7 +149,7 @@ const Contact = () => {
                                         <Mail className="h-5 w-5 text-[hsl(142,52%,32%)] mt-0.5 flex-shrink-0"/>
                                         <div>
                                             <p className="font-medium text-[hsl(150,30%,12%)]">Email</p>
-                                            <p className="text-sm text-[hsl(150,10%,45%)]">info@planted.com</p>
+                                            <a href="mailto:Ed@planted.co.ke" className="text-sm text-[hsl(150,10%,45%)] hover:underline">Ed@planted.co.ke</a>
                                         </div>
                                     </li>
                                 </ul>
