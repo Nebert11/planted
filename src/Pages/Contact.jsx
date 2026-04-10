@@ -3,163 +3,188 @@ import { motion } from "framer-motion";
 import SectionHeading from "../Components/SectionHeading";
 import { toast } from "sonner";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
+import emailjs from "@emailjs/browser";
 import bgImage from "../assets/images/nurseries.png";
 
 const Contact = () => {
-    const [ form, setForm] = useState({ name: "", email: "",  phone: "", organization: "", message: "" });
+    const [form, setForm] = useState({
+        name: "",
+        email: "",
+        phone: "",
+        organization: "",
+        message: "",
+    });
+
+    const [loading, setLoading] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
         if (!form.name.trim() || !form.email.trim() || !form.message.trim()) {
             toast.error("Please fill in all required fields.");
             return;
         }
 
-        const recipient = "Ed@planted.co.ke";
-        const subject = encodeURIComponent(`Contact request from ${form.name}`);
-        const body = encodeURIComponent(
-            `Name: ${form.name}\n` +
-            `Email: ${form.email}\n` +
-            `Phone: ${form.phone}\n` +
-            `Organization: ${form.organization}\n\n` +
-            `Message:\n${form.message}`
-        );
+        setLoading(true);
 
-        window.location.href = `mailto:${recipient}?subject=${subject}&body=${body}`;
-        toast.success("Opening your email client to send the message.");
-        setForm({ name: "", email: "", phone: "", organization: "", message: ""});
+        const templateParams = {
+            name: form.name,
+            email: form.email,
+            phone: form.phone,
+            organization: form.organization,
+            message: form.message,
+        };
+
+        emailjs
+            .send(
+                "service_hcfdrvp",   // 🔁 replace
+                "template_v1tby3l",  // 🔁 replace
+                templateParams,
+                "ntlMGLxV3PE4BHcM9"    // 🔁 replace
+            )
+            .then(() => {
+                toast.success("Message sent successfully!");
+                setForm({
+                    name: "",
+                    email: "",
+                    phone: "",
+                    organization: "",
+                    message: "",
+                });
+            })
+            .catch((error) => {
+                console.error(error);
+                toast.error("Failed to send message. Try again.");
+            })
+            .finally(() => {
+                setLoading(false);
+            });
     };
-
 
     return (
         <div className="overflow-hidden">
             {/* Hero Section */}
             <section className="relative h-[70vh] flex items-center overflow-hidden">
                 <img src={bgImage} className="absolute inset-0 object-cover h-full w-full" />
-                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(142_52%_32%/0.9)] via-[hsl(142_52%_32%/0.7)] to-[hsl(30_35%_30%/0.6)] "/>
-                    <div className="relative max-w-7xl mx-auto z-10 px-4 sm:px-6 lg:px-8">
-                        <motion.div
-                            inital= {{ opacity: 0, y: 30 }}
-                            animate= {{ opacity: 1, y: 0 }}
-                            transition= {{ duration: 0.6 }}
-                        >
-                            <h2 className="text-[hsl(0,0%,100%)] text-4xl md:text-5xl lg:text-7xl font-bold font-display">Contact Us</h2>
-                            <p className="mt-4 text-[hsl(0,0%,100%)]/80 max-w-xl text-lg ">We would like to hear from you. Let's grow together.</p>
+                <div className="absolute inset-0 bg-gradient-to-br from-[hsl(142_52%_32%/0.9)] via-[hsl(142_52%_32%/0.7)] to-[hsl(30_35%_30%/0.6)]" />
+                <div className="relative max-w-7xl mx-auto z-10 px-4 sm:px-6 lg:px-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                    >
+                        <h2 className="text-white text-4xl md:text-5xl lg:text-7xl font-bold font-display">
+                            Contact Us
+                        </h2>
+                        <p className="mt-4 text-white/80 max-w-xl text-lg">
+                            We would like to hear from you. Let's grow together.
+                        </p>
                     </motion.div>
                 </div>
             </section>
 
-            {/* Form section */}
+            {/* Form Section */}
             <section className="px-4 sm:px-6 lg:px-8 py-16 lg:py-24">
                 <div className="max-w-7xl mx-auto">
                     <div className="grid lg:grid-cols-[1fr_400px] gap-12">
                         <motion.div
-                            initial= {{ opacity: 0, x: -20 }}
+                            initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                         >
-                            <SectionHeading title="Send Message" center= {false}/>
+                            <SectionHeading title="Send Message" center={false} />
+
                             <form onSubmit={handleSubmit} className="space-y-5">
                                 <div className="grid sm:grid-cols-2 gap-5">
-                                    <div>
-                                        <label className="block text-sm font-medium text-[hsl(150,30%,12%)] mb-1.5">Name *</label>
-                                        <input type="text" 
-                                            value={form.name}
-                                            onChange={(e) => setForm({ ...form, name: e.target.value })}
-                                            className="w-full px-4 py-3 rounded-xl border border-[hsl(90,15%,88%)] bg-[hsl(90,20%,98%)] text-[hsl(150,30%,12%)] focus:outline-none focus:[hsl(142,52%,32%)]-2 focus:[hsl(142,52%,32%)]-[hsl(142,52%,32%)]"
-                                            placeholder="Your name"
-                                            maxLength={100}
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-[hsl(150,30%,12%)] mb-1.5">Email *</label>
-                                        <input type="text" 
-                                            value={form.email}
-                                            onChange={(e) => setForm({ ...form, email: e.target.value })}
-                                            className="w-full px-4 py-3 rounded-xl border border-[hsl(90,15%,88%)] bg-[hsl(90,20%,98%)] text-[hsl(150,30%,12%)] focus:outline-none focus:[hsl(142,52%,32%)]-2 focus:[hsl(142,52%,32%)]-[hsl(142,52%,32%)]"
-                                            placeholder="Your email"
-                                            maxLength={255}
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-[hsl(150,30%,12%)] mb-1.5">Phone *</label>
-                                        <input type="text" 
-                                            value={form.phone}
-                                            onChange={(e) => setForm({ ...form, phone: e.target.value })}
-                                            className="w-full px-4 py-3 rounded-xl border border-[hsl(90,15%,88%)] bg-[hsl(90,20%,98%)] text-[hsl(150,30%,12%)] focus:outline-none focus:[hsl(142,52%,32%)]-2 focus:[hsl(142,52%,32%)]-[hsl(142,52%,32%)]"
-                                            placeholder="Your phone"
-                                        />
-                                    </div>
-                                    <div>
-                                        <label className="block text-sm font-medium text-[hsl(150,30%,12%)] mb-1.5">Organization</label>
-                                        <input type="text" 
-                                            value={form.organization}
-                                            onChange={(e) => setForm({ ...form, organization: e.target.value })}
-                                            className="w-full px-4 py-3 rounded-xl border border-[hsl(90,15%,88%)] bg-[hsl(90,20%,98%)] text-[hsl(150,30%,12%)] focus:outline-none focus:[hsl(142,52%,32%)]-2 focus:[hsl(142,52%,32%)]-[hsl(142,52%,32%)]"
-                                            placeholder="Your organization"
-                                            maxLength={100}
-                                        />
-                                    </div>
-                                </div>
-                                <div>
-                                    <label className="block text-sm font-medium text-[hsl(150,30%,12%)] mb-1.5">Message  *</label>
-                                    <textarea type="text" 
-                                        value={form.message}
-                                        onChange={(e) => setForm({ ...form, message: e.target.value })}
-                                        rows={5}
-                                        className="w-full px-4 py-3 rounded-xl border border-[hsl(90,15%,88%)] bg-[hsl(90,20%,98%)] text-[hsl(150,30%,12%)] focus:outline-none focus:[hsl(142,52%,32%)]-2 focus:[hsl(142,52%,32%)]-[hsl(142,52%,32%)] resize-none"
-                                        placeholder="Your Message"
-                                        maxLength={1000}
+                                    <input
+                                        type="text"
+                                        placeholder="Your name *"
+                                        value={form.name}
+                                        onChange={(e) => setForm({ ...form, name: e.target.value })}
+                                        className="input"
+                                    />
+
+                                    <input
+                                        type="email"
+                                        placeholder="Your email *"
+                                        value={form.email}
+                                        onChange={(e) => setForm({ ...form, email: e.target.value })}
+                                        className="input"
+                                    />
+
+                                    <input
+                                        type="text"
+                                        placeholder="Your phone"
+                                        value={form.phone}
+                                        onChange={(e) => setForm({ ...form, phone: e.target.value })}
+                                        className="input"
+                                    />
+
+                                    <input
+                                        type="text"
+                                        placeholder="Your organization"
+                                        value={form.organization}
+                                        onChange={(e) => setForm({ ...form, organization: e.target.value })}
+                                        className="input"
                                     />
                                 </div>
-                                <button 
+
+                                <textarea
+                                    rows={5}
+                                    placeholder="Your message *"
+                                    value={form.message}
+                                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                                    className="input resize-none"
+                                />
+
+                                <button
                                     type="submit"
-                                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[hsl(142,52%,32%)] text-[hsl(0,0%,100%)] font-semibold hover:opacity-90 transition-opacity"
+                                    disabled={loading}
+                                    className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[hsl(142,52%,32%)] text-white font-semibold hover:opacity-90 transition-opacity disabled:opacity-60"
                                 >
-                                    Send Message <Send size={18}/>
+                                    {loading ? "Sending..." : "Send Message"}
+                                    <Send size={18} />
                                 </button>
                             </form>
                         </motion.div>
 
-                        {/* Info */}
-                        <motion.div 
-                            initial= {{ opacity: 0, x: 20 }}
+                        {/* Info Section */}
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             className="space-y-6"
                         >
-                            <div className="p-6 rounded-2xl bg-[hsl(0,0%,100%)] border border-[hsl(90,15%,88%)]">
-                                <h3 className="font-semibold font-display text-lg text-[hsl(150,30%,12%)] mb-4">Contact Information</h3>
+                            <div className="p-6 rounded-2xl bg-white border">
+                                <h3 className="font-semibold text-lg mb-4">
+                                    Contact Information
+                                </h3>
+
                                 <ul className="space-y-4">
                                     <li className="flex items-start gap-3">
-                                        <MapPin className="h-5 w-5 text-[hsl(142,52%,32%)] mt-0.5 flex-shrink-0"/>
-                                        <div>
-                                            <p className="font-medium text-[hsl(150,30%,12%)]">Office Address</p>
-                                            <p className="text-sm text-[hsl(150,10%,45%)]">123 Upperhill, Nairobi, Kenya</p>
-                                        </div>
+                                        <MapPin className="h-5 w-5 text-green-700 mt-1" />
+                                        <p>123 Upperhill, Nairobi, Kenya</p>
                                     </li>
+
                                     <li className="flex items-start gap-3">
-                                        <Phone className="h-5 w-5 text-[hsl(142,52%,32%)] mt-0.5 flex-shrink-0"/>
-                                        <div>
-                                            <p className="font-medium text-[hsl(150,30%,12%)]">Phone</p>
-                                            <p className="text-sm text-[hsl(150,10%,45%)]">+254-706-218-228</p>
-                                        </div>
+                                        <Phone className="h-5 w-5 text-green-700 mt-1" />
+                                        <p>+254-706-218-228</p>
                                     </li>
+
                                     <li className="flex items-start gap-3">
-                                        <Mail className="h-5 w-5 text-[hsl(142,52%,32%)] mt-0.5 flex-shrink-0"/>
-                                        <div>
-                                            <p className="font-medium text-[hsl(150,30%,12%)]">Email</p>
-                                            <a href="mailto:Ed@planted.co.ke" className="text-sm text-[hsl(150,10%,45%)] hover:underline">Ed@planted.co.ke</a>
-                                        </div>
+                                        <Mail className="h-5 w-5 text-green-700 mt-1" />
+                                        <a href="mailto:ed@planted.co.ke" className="hover:underline">
+                                            ed@planted.co.ke
+                                        </a>
                                     </li>
                                 </ul>
                             </div>
-                            {/* Map */}
+
                             <div>
                                 <iframe
                                     title="plantEd location"
                                     src="https://www.openstreetmap.org/export/embed.html?bbox=36.78%2C-1.29%2C36.82%2C-1.27&layer=mapnik"
-                                    className="w-full h-full border-0"
+                                    className="w-full h-64 border-0 rounded-xl"
                                     loading="lazy"
                                 />
                             </div>
