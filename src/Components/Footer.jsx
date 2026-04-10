@@ -53,7 +53,7 @@ const Footer = () => {
                             <li className="flex items-center gap-2"><MapPin size={16}/>123 Farm Road, Nairobi, Kenya</li>
                             <li className="flex items-center gap-2"><Phone size={16}/>+2547-06-218-228</li>
                             <li><a href="https://www.instagram.com/plantedkenya" className="flex items-center gap-2"><Instagram size={16}/>Plantend Kenya</a></li>
-                            <li className="flex items-center gap-2"><Mail size={16}/>info@planted.com</li>
+                            <li className="flex items-center gap-2"><Mail size={16}/>Ed@planted.co.ke</li>
                         </ul>
                     </div>
 
