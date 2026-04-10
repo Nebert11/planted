@@ -37,10 +37,10 @@ const Contact = () => {
 
         emailjs
             .send(
-                "service_hcfdrvp",   // 🔁 replace
-                "template_v1tby3l",  // 🔁 replace
+                "service_hcfdrvp",   
+                "template_v1tby3l",  
                 templateParams,
-                "ntlMGLxV3PE4BHcM9"    // 🔁 replace
+                "ntlMGLxV3PE4BHcM9"   
             )
             .then(() => {
                 toast.success("Message sent successfully!");
